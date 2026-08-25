@@ -49,10 +49,20 @@
     <h1>WAIPL</h1>
     <p class="canon">El WAIPL es el universo. Graphy es su manifestación perceptible. Lo visible muestra el universo; lo relacional revela cómo se organiza; y lo invisible determina cómo puede expandirse sin dejar de ser él mismo.</p>
     <div class="links">
-      <a class="btn" href="https://graph.waipl.dev/">Entrar a Graphy</a>
+      <a class="btn" id="graphy" href="https://graph-waipl.vercel.app/">Entrar a Graphy</a>
       <a class="btn" href="ecosistema.html">El ecosistema</a>
     </div>
     <footer>waipl.dev · umbral · graph.waipl.dev · grafo vivo · 2026</footer>
   </main>
+  <script>
+    (function () {
+      var a = document.getElementById("graphy");
+      if (!a) return;
+      var canonical = "https://graph.waipl.dev/";
+      fetch(canonical, { mode: "no-cors", cache: "no-store", signal: AbortSignal.timeout(1800) })
+        .then(function () { a.href = canonical; })
+        .catch(function () {});
+    })();
+  </script>
 </body>
 </html>
